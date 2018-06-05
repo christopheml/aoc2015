@@ -8,6 +8,14 @@ class Present {
     private final int width;
     private final int height;
 
+    static Present create(String dimensions) {
+        String[] extractedDimensions = dimensions.split("x");
+        int length = Integer.parseInt(extractedDimensions[0]);
+        int width = Integer.parseInt(extractedDimensions[1]);
+        int height = Integer.parseInt(extractedDimensions[2]);
+        return new Present(length, width, height);
+    }
+
     private Present(int length, int width, int height) {
         this.length = length;
         this.width = width;
@@ -20,16 +28,18 @@ class Present {
         return 2 * (sideAreas[0] + sideAreas[1] + sideAreas[2]) + sideAreas[0];
     }
 
-    static Present create(String dimensions) {
-        String[] extractedDimensions = dimensions.split("x");
-        int length = Integer.parseInt(extractedDimensions[0]);
-        int width = Integer.parseInt(extractedDimensions[1]);
-        int height = Integer.parseInt(extractedDimensions[2]);
-        return new Present(length, width, height);
+    int ribbonLength() {
+        return smallestPerimeter() + volume();
     }
 
-    int ribbonLength() {
-        return 0;
+    private int volume() {
+        return length * width * height;
+    }
+
+    private int smallestPerimeter() {
+        int[] dimensions = { length, width, height };
+        Arrays.sort(dimensions);
+        return dimensions[0] * 2 + dimensions[1] * 2;
     }
 
 }

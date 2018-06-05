@@ -1,14 +1,21 @@
 package day1;
 
-public class Elevator {
+class Elevator {
 
+    private int floor;
 
-    public Elevator(String commands) {
-
+    Elevator(String commands) {
+        for (int i = 0; i < commands.length(); ++i) {
+            if (commands.charAt(i) == '(') {
+                floor++;
+            } else if (commands.charAt(i) == ')') {
+                floor--;
+            }
+        }
     }
 
-    public int floor() {
-        return 0;
+    int floor() {
+        return floor;
     }
 
 }

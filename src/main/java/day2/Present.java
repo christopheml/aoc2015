@@ -28,4 +28,8 @@ class Present {
         return new Present(length, width, height);
     }
 
+    int ribbonLength() {
+        return 0;
+    }
+
 }

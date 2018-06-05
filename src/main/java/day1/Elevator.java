@@ -4,12 +4,18 @@ class Elevator {
 
     private int floor;
 
+    private int firstBasementEntry;
+
     Elevator(String commands) {
+
         for (int i = 0; i < commands.length(); ++i) {
             if (commands.charAt(i) == '(') {
                 floor++;
             } else if (commands.charAt(i) == ')') {
                 floor--;
+                if (floor < 0 && firstBasementEntry == 0) {
+                    firstBasementEntry = i + 1;
+                }
             }
         }
     }
@@ -19,7 +25,7 @@ class Elevator {
     }
 
     public int firstBasementEntry() {
-        return 0;
+        return firstBasementEntry;
     }
 
 }

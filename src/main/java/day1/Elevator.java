@@ -18,4 +18,8 @@ class Elevator {
         return floor;
     }
 
+    public int firstBasementEntry() {
+        return 0;
+    }
+
 }

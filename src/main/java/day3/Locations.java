@@ -35,6 +35,13 @@ class Locations {
         }
     }
 
+    Locations mergeWith(Locations other) {
+        Locations merged = new Locations();
+        merged.locations.addAll(this.locations);
+        merged.locations.addAll(other.locations);
+        return merged;
+    }
+
     private void moveTo(int x, int y) {
         position = new Location(x, y);
         locations.add(position);

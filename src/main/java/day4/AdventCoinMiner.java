@@ -1,6 +1,5 @@
 package day4;
 
-import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
@@ -22,14 +21,10 @@ class AdventCoinMiner {
         try {
             MessageDigest md5 = MessageDigest.getInstance("md5");
             byte[] digest = md5.digest(candidate.getBytes());
-            return toHexString(digest).startsWith("00000");
+            return digest[0] == 0x00 && digest[1] == 0x00 && (digest[2] & 0xF0) == 0;
         } catch (NoSuchAlgorithmException e) {
             throw new RuntimeException("MD5 indisponible");
         }
-    }
-
-    private String toHexString(byte[] digest) {
-        return String.format("%032x", new BigInteger(1, digest));
     }
 
 }

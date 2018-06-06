@@ -15,7 +15,7 @@ class AdventCoinMinerTest {
             "pqrstuv, 1048970"
     })
     void part1_acceptance_test(String secretKey, int expectedNumber) {
-        AdventCoinMiner miner = new AdventCoinMiner();
+        AdventCoinMiner miner = new AdventCoinMiner(AdventCoinMiner.FIVE_LEADING_ZEROES);
         assertThat(miner.compute(secretKey)).isEqualTo(expectedNumber);
     }
 

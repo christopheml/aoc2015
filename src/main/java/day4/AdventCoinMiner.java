@@ -5,6 +5,18 @@ import java.security.NoSuchAlgorithmException;
 
 class AdventCoinMiner {
 
+    static final HashValidator FIVE_LEADING_ZEROES =
+            digest -> digest[0] == 0x00 && digest[1] == 0x00 && (digest[2] & 0xF0) == 0;
+
+    static final HashValidator SIX_LEADING_ZEROES =
+            digest -> digest[0] == 0x00 && digest[1] == 0x00 && digest[2] == 0x00;
+
+    AdventCoinMiner(HashValidator hashValidator) {
+        this.hashValidator = hashValidator;
+    }
+
+    private final HashValidator hashValidator;
+
     int compute(String secretKey) {
         String candidate;
         int i = 0;
@@ -21,7 +33,7 @@ class AdventCoinMiner {
         try {
             MessageDigest md5 = MessageDigest.getInstance("md5");
             byte[] digest = md5.digest(candidate.getBytes());
-            return digest[0] == 0x00 && digest[1] == 0x00 && (digest[2] & 0xF0) == 0;
+            return hashValidator.apply(digest);
         } catch (NoSuchAlgorithmException e) {
             throw new RuntimeException("MD5 indisponible");
         }

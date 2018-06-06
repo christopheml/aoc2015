@@ -9,6 +9,11 @@ public class Solution {
                 .filter(NiceConditions::isNice)
                 .count();
         System.out.println(niceCount + " strings are nice");
+
+        var superNiceCount = PuzzleInput.read("/day5.txt").stream()
+                .filter(ReallyNiceConditions::isNice)
+                .count();
+        System.out.println(superNiceCount + " strings are really nice");
     }
 
 }

@@ -45,7 +45,7 @@ class NiceConditionsTest {
         assertThat(NiceConditions.hasForbiddenPart(word)).isEqualTo(expected);
     }
 
-    @DisplayName("Part 1 acceptance test")
+    @DisplayName("Day 5 part 1 acceptance test")
     @ParameterizedTest(name = "{0} is nice ? {1}")
     @CsvSource({
             "ugknbfddgicrmopn, true",

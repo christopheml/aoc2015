@@ -16,7 +16,7 @@ class RobotDeliveryTest {
             "^v^v^v^v^v, 11"
     })
     void part2_acceptance_test(String instructions, int expectedHouseCount) {
-        RobotDelivery delivery = new RobotDelivery(instructions);
+        var delivery = new RobotDelivery(instructions);
         assertThat(delivery.houseCount()).isEqualTo(expectedHouseCount);
     }
 

@@ -14,7 +14,7 @@ public class PuzzleInput implements AutoCloseable {
         return new PuzzleInput(path);
     }
 
-    public PuzzleInput(String path) {
+    private PuzzleInput(String path) {
         reader = new BufferedReader(new InputStreamReader(PuzzleInput.class.getResourceAsStream(path)));
     }
 

@@ -2,7 +2,7 @@ package day3;
 
 class Delivery {
 
-    private Locations locations = new Locations();
+    private final Locations locations = new Locations();
 
     Delivery(String instructions) {
         for (int i = 0; i < instructions.length(); i++) {

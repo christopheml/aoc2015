@@ -2,7 +2,7 @@ package day2;
 
 import common.PuzzleInput;
 
-public class Solution {
+class Solution {
 
     private static class Supplies {
 

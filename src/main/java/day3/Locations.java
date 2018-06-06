@@ -36,7 +36,7 @@ class Locations {
     }
 
     Locations mergeWith(Locations other) {
-        Locations merged = new Locations();
+        var merged = new Locations();
         merged.locations.addAll(this.locations);
         merged.locations.addAll(other.locations);
         return merged;

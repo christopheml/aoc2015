@@ -7,7 +7,6 @@ class Elevator {
     private int firstBasementEntry;
 
     Elevator(String commands) {
-
         for (int i = 0; i < commands.length(); ++i) {
             if (commands.charAt(i) == '(') {
                 floor++;

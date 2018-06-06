@@ -2,7 +2,7 @@ package day3;
 
 class RobotDelivery {
 
-    private Locations regularSantaLocations = new Locations();
+    private final Locations regularSantaLocations = new Locations();
 
     private Locations robotSantaLocations = new Locations();
 
@@ -14,7 +14,7 @@ class RobotDelivery {
     }
 
     int houseCount() {
-        Locations commonLocations = regularSantaLocations.mergeWith(robotSantaLocations);
+        var commonLocations = regularSantaLocations.mergeWith(robotSantaLocations);
         return commonLocations.count();
     }
 

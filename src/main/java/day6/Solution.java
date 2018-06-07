@@ -9,13 +9,13 @@ public class Solution {
     private static final Pattern COMMAND = Pattern.compile("(turn on|turn off|toggle) (\\d+),(\\d+) through (\\d+),(\\d+)");
 
     public static void main(String... args) {
-        LightGrid grid = new LightGrid(1000, 1000);
+        BasicLightGrid grid = new BasicLightGrid(1000, 1000);
         PuzzleInput.read("/day6.txt").stream()
                 .forEach(command -> mutateGrid(grid, command));
         System.out.println("Lumières allumées : " + grid.litCount());
     }
 
-    private static void mutateGrid(LightGrid grid, String command) {
+    private static void mutateGrid(BasicLightGrid grid, String command) {
         Matcher matcher = COMMAND.matcher(command);
         if (matcher.matches()) {
             int startX = Integer.parseInt(matcher.group(2));

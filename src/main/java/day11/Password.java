@@ -29,4 +29,8 @@ class Password {
         return new String(letters);
     }
 
+    boolean isValid() {
+        return PasswordValidator.isValid(letters);
+    }
+
 }

@@ -23,6 +23,11 @@ public class Graph {
         vertices.add(new Vertex(originNode, destinationNode, distance));
     }
 
+    public void readNode(String representation) {
+        String[] parts = representation.split(" ");
+        addNode(parts[0], parts[2], Integer.parseInt(parts[4]));
+    }
+
     public int shortestDistance() {
         int shortestDistance = Integer.MAX_VALUE;
         List<List<Node>> routes = Permutations.compute(nodes);

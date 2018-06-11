@@ -2,8 +2,20 @@ package day11;
 
 class PasswordValidator {
 
+    private PasswordValidator() {
+    }
+
     static boolean isValid(char[] password) {
-        return noAmbiguousCharacter(password) && twoOverlappingPairs(password);
+        return noAmbiguousCharacter(password) && twoOverlappingPairs(password) && oneStraight(password);
+    }
+
+    private static boolean noAmbiguousCharacter(char[] password) {
+        for (char c : password) {
+            if (c == 'l' || c == 'i' || c == 'o') {
+                return false;
+            }
+        }
+        return true;
     }
 
     private static boolean twoOverlappingPairs(char[] password) {
@@ -23,13 +35,18 @@ class PasswordValidator {
         return -1;
     }
 
-    private static boolean noAmbiguousCharacter(char[] password) {
-        for (char c : password) {
-            if (c == 'l' || c == 'i' || c == 'o') {
-                return false;
+    private static boolean oneStraight(char[] password) {
+        for (int i = 0; i < password.length - 2; i++) {
+            if (hasAscendingStraightAt(password, i)) {
+                return true;
             }
         }
-        return true;
+        return false;
+    }
+
+    private static boolean hasAscendingStraightAt(char[] password, int position) {
+        return password[position] + 1 == password[position + 1]
+                && password[position] + 2 == password[position + 2];
     }
 
 }

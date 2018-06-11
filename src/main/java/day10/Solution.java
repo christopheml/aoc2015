@@ -8,6 +8,12 @@ public class Solution {
             number = LookAndSay.process(number);
         }
         System.out.println("Result after 40 iterations is " + number.length());
+
+        for (int i = 0; i < 10; i++) {
+            number = LookAndSay.process(number);
+        }
+
+        System.out.println("Result after 50 iterations is " + number.length());
     }
 
 }

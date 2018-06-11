@@ -33,6 +33,11 @@ class Graph {
         return routes.stream().mapToInt(this::getDistance).min().orElseThrow();
     }
 
+    int longestDistance() {
+        List<List<Node>> routes = Permutations.compute(nodes);
+        return routes.stream().mapToInt(this::getDistance).max().orElseThrow();
+    }
+
     private int getDistance(List<Node> route) {
         int distance = 0;
         for (int i = 0; i < route.size() - 1; i++) {

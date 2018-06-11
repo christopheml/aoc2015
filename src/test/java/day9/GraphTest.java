@@ -14,6 +14,7 @@ class GraphTest {
         graph.addNode("Dublin", "Belfast", 141);
 
         assertThat(graph.shortestDistance()).isEqualTo(605);
+        assertThat(graph.longestDistance()).isEqualTo(982);
     }
 
 }

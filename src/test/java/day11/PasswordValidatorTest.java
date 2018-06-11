@@ -8,8 +8,14 @@ import static org.assertj.core.api.Assertions.assertThat;
 class PasswordValidatorTest {
 
     @ParameterizedTest
-    @CsvSource({"ace, true", "aie, false", "ale, false", "aoe, false"})
+    @CsvSource({"aacee, true", "aaiee, false", "aalee, false", "aaoee, false"})
     void should_not_contain_confusing_letters(String password, boolean isValid) {
+        assertThat(PasswordValidator.isValid(password.toCharArray())).isEqualTo(isValid);
+    }
+
+    @ParameterizedTest
+    @CsvSource({"abbceffg, true", "aaabcddd, true", "abbcegjk, false", "abcedfgg, false", "aaabcdef, false"})
+    void should_contain_two_non_overlapping_pairs(String password, boolean isValid) {
         assertThat(PasswordValidator.isValid(password.toCharArray())).isEqualTo(isValid);
     }
 

@@ -1,12 +1,12 @@
 package day14;
 
-class Reindeer {
+class AnonymousReindeer {
 
-    private final int speed;
-    private final int effortDuration;
-    private final int pauseDuration;
+    final int speed;
+    final int effortDuration;
+    final int pauseDuration;
 
-    Reindeer(int speed, int effortDuration, int pauseDuration) {
+    AnonymousReindeer(int speed, int effortDuration, int pauseDuration) {
         this.speed = speed;
         this.effortDuration = effortDuration;
         this.pauseDuration = pauseDuration;

@@ -19,13 +19,13 @@ public class Solution {
 
     }
 
-    private static Reindeer toReindeer(String description) {
+    private static AnonymousReindeer toReindeer(String description) {
         Matcher matcher = REINDEER_PROPERTIES.matcher(description);
         if (matcher.matches()) {
             int speed = Integer.parseInt(matcher.group(1));
             int effortDuration = Integer.parseInt(matcher.group(2));
             int pauseDuration = Integer.parseInt(matcher.group(3));
-            return new Reindeer(speed, effortDuration, pauseDuration);
+            return new AnonymousReindeer(speed, effortDuration, pauseDuration);
         }
         throw new IllegalArgumentException(description);
     }

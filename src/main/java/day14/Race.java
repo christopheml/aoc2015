@@ -11,8 +11,12 @@ class Race {
 
     private final List<Rank> rankings;
 
-    Race(NamedReindeer... deers) {
-        rankings = Arrays.stream(deers).map(Rank::new).collect(toCollection(ArrayList::new));
+    Race(NamedReindeer... reindeers) {
+        rankings = Arrays.stream(reindeers).map(Rank::new).collect(toCollection(ArrayList::new));
+    }
+
+    Race(List<NamedReindeer> reindeers) {
+        rankings = reindeers.stream().map(Rank::new).collect(toCollection(ArrayList::new));
     }
 
     List<Rank> getRankings() {

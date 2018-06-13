@@ -21,24 +21,24 @@ public enum Ingredient {
         this.calories = calories;
     }
 
-    public int getCapacity(int amount) {
-        return capacity * amount;
+    public int getCapacity() {
+        return capacity;
     }
 
-    public int getDurability(int amount) {
-        return durability * amount;
+    public int getDurability() {
+        return durability;
     }
 
-    public int getFlavor(int amount) {
-        return flavor * amount;
+    public int getFlavor() {
+        return flavor;
     }
 
-    public int getTexture(int amount) {
-        return texture * amount;
+    public int getTexture() {
+        return texture;
     }
 
-    public int getCalories(int amount) {
-        return calories * amount;
+    public int getCalories() {
+        return calories;
     }
 
 }

@@ -26,6 +26,25 @@ public class Sue {
         return attributeValue == null || attributeValue == value;
     }
 
+    boolean checkAttribute(String name, int value) {
+        var attributeValue = attributes.get(name);
+
+        if (attributeValue == null) {
+            return true;
+        }
+
+        switch (name) {
+            case "cats":
+            case "trees":
+                return attributeValue > value;
+            case "pomeranians":
+            case "goldfish":
+                return attributeValue < value;
+            default:
+            return attributeValue == value;
+        }
+    }
+
     static Sue parse(String description) {
         Matcher matcher = DESCRIPTION_PATTERN.matcher(description);
         if (matcher.matches()) {
@@ -41,5 +60,4 @@ public class Sue {
     public String getName() {
         return name;
     }
-
 }

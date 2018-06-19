@@ -6,17 +6,22 @@ class LightGrid {
 
     private final int[][] grid;
 
-    LightGrid(int size, List<String> lines) {
+    private final GridInvariant invariant;
+
+    LightGrid(int size, List<String> lines, GridInvariant invariant) {
         grid = new int[size][size];
+        this.invariant = invariant;
         for (int y = 0; y < size; ++y) {
             for (int x = 0; x < size; ++x) {
                 grid[x][y] = lines.get(y).charAt(x) == '#' ? 1 : 0;
+                grid[x][y] = invariant.apply(x, y, grid);
             }
         }
     }
 
-    private LightGrid(int[][] grid) {
+    private LightGrid(int[][] grid, GridInvariant invariant) {
         this.grid = grid;
+        this.invariant = invariant;
     }
 
     LightGrid update() {
@@ -30,9 +35,11 @@ class LightGrid {
                 } else if (!isAlive(x, y) && neighbors == 3) {
                     updated[x][y] = 1;
                 }
+
+                updated[x][y] = invariant.apply(x, y, updated);
             }
         }
-        return new LightGrid(updated);
+        return new LightGrid(updated, invariant);
     }
 
     private boolean isAlive(int x, int y) {
